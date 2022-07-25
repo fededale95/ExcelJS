@@ -32,9 +32,6 @@
 
 const excel_file = document.getElementById('excel_file');
 
-var fs = require('fs');
-var dataz = fs.readFile('/home/dms/file.xlsx');
-
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
@@ -54,8 +51,8 @@ excel_file.addEventListener('change', (event) => {
 
         var data = new Uint8Array(reader.result);
         //var data = new Uint8Array(dataz);
-
-        var work_book = XLSX.read(data, {type:'array'});
+        //var work_book = XLSX.read(data, {type:'array'});
+        var work_book = XLSX.readFile('/home/dms/file.xlsx');
 
         var sheet_name = work_book.SheetNames;
 
