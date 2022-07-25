@@ -30,10 +30,10 @@
 </html>
 
 <script>
-  const url= "http://10.1.6.14/file.xlsx";
+  const url= "https://github.com/fededale95/ExcelJS/blob/main/Kilometraggio%20Notaspese.xls?raw=true";
   var req = new XMLHttpRequest();
   req.open("GET", url);
-  req.responseType = "buffer";
+  req.responseType = "arraybuffer";
   req.onload = function(e) {
     document.getElementById('excel_data2').innerHTML = "prova";
     var data = new Uint8Array(req.response);
