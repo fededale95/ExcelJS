@@ -64,20 +64,20 @@ excel_file.addEventListener('change', (event) => {
 
                 for(var cell = 0; cell < 2 ; cell++)//sheet_data[row].length; cell++)
                 {
+                  if(sheet_data[row][cell]<>"undefined"){
+                      if(row == 0)
+                      {
 
-                    if(row == 0)
-                    {
+                          table_output += '<th>'+sheet_data[row][cell]+'</th>';
 
-                        table_output += '<th>'+sheet_data[row][cell]+'</th>';
+                      }
+                      else
+                      {
 
-                    }
-                    else
-                    {
+                          table_output += '<td>'+sheet_data[row][cell]+'</td>';
 
-                        table_output += '<td>'+sheet_data[row][cell]+'</td>';
-
-                    }
-
+                      }
+                  }
                 }
 
                 table_output += '</tr>';
