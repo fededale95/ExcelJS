@@ -32,7 +32,7 @@
 <script>
   const url= "http://10.1.6.14/file.xlsx";
   var req = new XMLHttpRequest();
-  req.open("GET", url);
+  req.open("GET", url, true);
   req.responseType = "arraybuffer";
   req.onload = function(e) {
     document.getElementById('excel_data2').innerHTML = "prova";
