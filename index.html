@@ -33,7 +33,7 @@
   const url= "https://github.com/fededale95/ExcelJS/blob/main/KM_NOTA_SPESA.xlsx?raw=true";
   var req = new XMLHttpRequest();
   req.open("GET", url);
-  req.responseType = "arraybuffer";
+  //req.responseType = "arraybuffer";
   req.onload = function(e) {
     document.getElementById('excel_data2').innerHTML = "prova";
     var data = new Uint8Array(req.response);
