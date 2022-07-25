@@ -31,7 +31,7 @@
 <script>
 
 const excel_file = document.getElementById('excel_file');
-cons excel_filez = "/home/dms/file.xlsx";
+const excel_filez = "/home/dms/file.xlsx";
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
@@ -45,6 +45,7 @@ excel_file.addEventListener('change', (event) => {
 
     var reader = new FileReader();
 
+    //reader.readAsArrayBuffer(event.target.files[0]);
     reader.readAsArrayBuffer(excel_filez);
 
     reader.onload = function(event){
