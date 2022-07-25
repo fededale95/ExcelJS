@@ -31,7 +31,11 @@
 <script>
 
 const excel_file = document.getElementById('excel_file');
-const excel_filez = "/home/dms/file.xlsx";
+
+var excel = new ActiveXObject("Excel.Application");
+excel.Visible = false;
+var excel_filez = excel.Workbooks.Open("/home/dms/file.xlsx");
+
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
