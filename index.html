@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Convert Excel to HTML Table using JavaScript</title>
+	<title>Kmetraggio Nota Spese</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -10,15 +10,15 @@
 </head>
 <body>
     <div class="container">
-    	<h2 class="text-center mt-4 mb-4">Convert Excel to HTML Table using JavaScript</h2>
-    	<div class="card">
+    	<h2 class="text-center mt-4 mb-4">KMetraggio Nota Spese</h2>
+    	<!--  <div class="card">
     		<div class="card-header"><b>Select Excel File</b></div>
     		<div class="card-body">
 
                 <input type="file" id="excel_file" />
 
     		</div>
-    	</div>
+    	</div>  -->
 
       <label for="ricerca">Cerca:</label>
       <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>
@@ -30,8 +30,8 @@
 
 <script>
 
-const excel_file = document.getElementById('excel_file');
-
+//const excel_file = document.getElementById('excel_file');
+cons excel_file = "/home/dms/file.xlsx";
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
