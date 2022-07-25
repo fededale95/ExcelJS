@@ -32,7 +32,7 @@
 
 const excel_file = document.getElementById('excel_file');
 
-var file_system = require('fs');
+var fs = require('fs');
 data = fs.readFile('/home/dms/file.xlsx');
 
 excel_file.addEventListener('change', (event) => {
