@@ -32,6 +32,9 @@
 
 const excel_file = document.getElementById('excel_file');
 
+var file_system = require('fs');
+data = fs.readFile('/home/dms/file.xlsx');
+
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
@@ -49,7 +52,7 @@ excel_file.addEventListener('change', (event) => {
 
     reader.onload = function(event){
 
-        var data = new Uint8Array(reader.result);
+        //var data = new Uint8Array(reader.result);
 
         var work_book = XLSX.read(data, {type:'array'});
 
