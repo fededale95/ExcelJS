@@ -32,9 +32,6 @@
 
 const excel_file = document.getElementById('excel_file');
 
-var workbook = new Excel.Workbook();
-workbook.xlsx.readFile("/home/dms/file.xlsx").then(function() {};
-
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
@@ -49,14 +46,12 @@ excel_file.addEventListener('change', (event) => {
     var reader = new FileReader();
 
     reader.readAsArrayBuffer(event.target.files[0]);
-    //reader.readAsArrayBuffer(excel_filez);
 
     reader.onload = function(event){
 
         var data = new Uint8Array(reader.result);
 
-        //var work_book = XLSX.read(data, {type:'array'});
-        var work_book = workbook;
+        var work_book = XLSX.read(data, {type:'array'});
 
         var sheet_name = work_book.SheetNames;
 
