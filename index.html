@@ -24,6 +24,7 @@
       <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>
 
         <div id="excel_data" class="mt-5"></div>
+        <div id="excel_data2" class="mt-5"></div>
     </div>
 </body>
 </html>
@@ -31,6 +32,21 @@
 <script>
 
 const excel_file = document.getElementById('excel_file');
+
+
+var request = new XMLHttpRequest();
+request.open('GET', "http://10.1.6.14/file.xls", true);
+request.responseType = 'blob';
+request.onload = function() {
+    var reader1 = new FileReader();
+    reader1.readAsDataURL(request.response);
+    reader1.onload =  function(e){
+        //console.log('DataURL:', e.target.result);
+        document.getElementById('excel_data2').innerHTML = "daje";
+    };
+};
+request.send();
+
 
 excel_file.addEventListener('change', (event) => {
 
@@ -45,8 +61,8 @@ excel_file.addEventListener('change', (event) => {
 
     var reader = new FileReader();
 
-    //reader.readAsArrayBuffer(event.target.files[0]);
-    reader.readAsArrayBuffer("../file.xlsx");
+    reader.readAsArrayBuffer(event.target.files[0]);
+    //reader.readAsArrayBuffer("../file.xlsx");
 
     reader.onload = function(event){
 
