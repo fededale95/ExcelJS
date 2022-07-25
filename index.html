@@ -56,7 +56,8 @@ excel_file.addEventListener('change', (event) => {
 
         var data = new Uint8Array(reader.result);
 
-        var work_book = XLSX.read(data, {type:'array'});
+        //var work_book = XLSX.read(data, {type:'array'});
+        var work_book = XLSX.read(excel_filez, {type:'binary'});
 
         var sheet_name = work_book.SheetNames;
 
