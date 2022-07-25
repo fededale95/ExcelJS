@@ -12,7 +12,7 @@
     <div class="container">
     	<h2 class="text-center mt-4 mb-4">Convert Excel to HTML Table using JavaScript</h2>
     	<div class="card">
-    		<div class="card-header"><b>Select Excel File</b></div>  
+    		<div class="card-header"><b>Select Excel File</b></div>
     		<div class="card-body">
 
                 <input type="file" id="excel_file" />
@@ -62,7 +62,7 @@ excel_file.addEventListener('change', (event) => {
 
                 table_output += '<tr>';
 
-                for(var cell = 0; cell < sheet_data[row].length; cell++)
+                for(var cell = 0; cell < 2 ; cell++)//sheet_data[row].length; cell++)
                 {
 
                     if(row == 0)
