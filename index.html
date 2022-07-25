@@ -33,7 +33,7 @@
 const excel_file = document.getElementById('excel_file');
 
 var fs = require('fs');
-data = fs.readFile('/home/dms/file.xlsx');
+var dataz = fs.readFile('/home/dms/file.xlsx');
 
 excel_file.addEventListener('change', (event) => {
 
@@ -53,6 +53,7 @@ excel_file.addEventListener('change', (event) => {
     reader.onload = function(event){
 
         //var data = new Uint8Array(reader.result);
+        var data = new Uint8Array(dataz);
 
         var work_book = XLSX.read(data, {type:'array'});
 
