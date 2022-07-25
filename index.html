@@ -52,8 +52,8 @@ excel_file.addEventListener('change', (event) => {
 
     reader.onload = function(event){
 
-        //var data = new Uint8Array(reader.result);
-        var data = new Uint8Array(dataz);
+        var data = new Uint8Array(reader.result);
+        //var data = new Uint8Array(dataz);
 
         var work_book = XLSX.read(data, {type:'array'});
 
