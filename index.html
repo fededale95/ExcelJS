@@ -11,14 +11,14 @@
 <body>
     <div class="container">
     	<h2 class="text-center mt-4 mb-4">KMetraggio Nota Spese</h2>
-    	<!--  <div class="card">
+    	 <div class="card">
     		<div class="card-header"><b>Select Excel File</b></div>
     		<div class="card-body">
 
-                <input type="file" id="excel_file" />
+                <input type="file" id="excel_file"  />
 
     		</div>
-    	</div>  -->
+    	</div>
 
       <label for="ricerca">Cerca:</label>
       <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>
@@ -30,8 +30,8 @@
 
 <script>
 
-//const excel_file = document.getElementById('excel_file');
-cons excel_file = "/home/dms/file.xlsx";
+const excel_file = document.getElementById('excel_file');
+cons excel_filez = "/home/dms/file.xlsx";
 excel_file.addEventListener('change', (event) => {
 
     if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
@@ -45,7 +45,7 @@ excel_file.addEventListener('change', (event) => {
 
     var reader = new FileReader();
 
-    reader.readAsArrayBuffer(event.target.files[0]);
+    reader.readAsArrayBuffer(excel_filez);
 
     reader.onload = function(event){
 
