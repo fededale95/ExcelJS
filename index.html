@@ -35,6 +35,7 @@
   req.open("GET", url);
   req.responseType = "arraybuffer";
   req.onload = function(e) {
+    document.getElementById('excel_data2').innerHTML = "prova";
     var data = new Uint8Array(req.response);
     var work_book = XLSX.read(data, {type:"array"});
 
@@ -83,7 +84,7 @@
   }
 
   req.send();
-document.getElementById('excel_data2').innerHTML = "prova";
+
 
 
 /*const excel_file = document.getElementById('excel_file');
