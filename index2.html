@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Kmetraggio Nota Spese</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    	<h2 class="text-center mt-4 mb-4">KMetraggio Nota Spese</h2>
+    	 <div class="card">
+    		<div class="card-header"><b>Select Excel File</b></div>
+    		<div class="card-body">
+
+                <input type="file" id="excel_file"  />
+
+    		</div>
+    	</div>
+
+      <label for="ricerca">Cerca:</label>
+      <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>
+
+        <div id="excel_data" class="mt-5"></div>
+        <div id="excel_data2" class="mt-5"></div>
+    </div>
+</body>
+</html>
+
+<script>
+  const url= "https://github.com/fededale95/ExcelJS/blob/main/KM_NOTA_SPESA.xlsx?raw=true";
+  var req = new XMLHttpRequest();
+  req.open("GET", url);
+  //req.responseType = "arraybuffer";
+  req.onload = function(e) {
+    document.getElementById('excel_data2').innerHTML = "prova";
+    var data = new Uint8Array(req.response);
+    var work_book = XLSX.read(data, {type:"array"});
+
+    /* DO SOMETHING WITH workbook HERE */
+    var sheet_name = work_book.SheetNames;
+
+    var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], {header:1});
+
+    if(sheet_data.length > 0)
+    {
+        var table_output = '<table id="tabella" class="table table-striped table-bordered">';
+
+        for(var row = 0; row < sheet_data.length; row++)
+        {
+
+            table_output += '<tr>';
+
+            for(var cell = 0; cell < 2 ; cell++)//sheet_data[row].length; cell++)
+            {
+                  if(row == 0)
+                  {
+
+                      table_output += '<th>'+sheet_data[row][cell]+'</th>';
+
+                  }
+                  else
+                  {
+
+                      table_output += '<td>'+sheet_data[row][cell]+'</td>';
+
+                  }
+            }
+
+            table_output += '</tr>';
+
+        }
+
+        table_output += '</table>';
+
+        document.getElementById('excel_data').innerHTML = table_output;
+    }
+
+    //excel_file.value = '';
+
+
+  }
+
+  req.send();
+
+
+
+/*const excel_file = document.getElementById('excel_file');
+
+
+excel_file.addEventListener('change', (event) => {
+
+    if(!['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(event.target.files[0].type))
+    {
+        document.getElementById('excel_data').innerHTML = '<div class="alert alert-danger">Only .xlsx or .xls file format are allowed</div>';
+
+        excel_file.value = '';
+
+        return false;
+    }
+
+    var reader = new FileReader();
+
+    reader.readAsArrayBuffer(event.target.files[0]);
+    //reader.readAsArrayBuffer("../file.xlsx");
+
+    reader.onload = function(event){
+
+        var data = new Uint8Array(reader.result);
+        //var data = new Uint8Array(dataz);
+        var work_book = XLSX.read(data, {type:'array'});
+        //var work_book = XLSX.readFile('/home/dms/file.xlsx');
+
+        var sheet_name = work_book.SheetNames;
+
+        var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], {header:1});
+
+        if(sheet_data.length > 0)
+        {
+            var table_output = '<table id="tabella" class="table table-striped table-bordered">';
+
+            for(var row = 0; row < sheet_data.length; row++)
+            {
+
+                table_output += '<tr>';
+
+                for(var cell = 0; cell < 2 ; cell++)//sheet_data[row].length; cell++)
+                {
+                      if(row == 0)
+                      {
+
+                          table_output += '<th>'+sheet_data[row][cell]+'</th>';
+
+                      }
+                      else
+                      {
+
+                          table_output += '<td>'+sheet_data[row][cell]+'</td>';
+
+                      }
+                }
+
+                table_output += '</tr>';
+
+            }
+
+            table_output += '</table>';
+
+            document.getElementById('excel_data').innerHTML = table_output;
+        }
+
+        excel_file.value = '';
+
+    }
+
+});*/
+
+
+function cerca() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("ricerca");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tabella");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+</script>
