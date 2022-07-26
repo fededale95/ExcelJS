@@ -22,7 +22,7 @@
 </html>
 
 <script>
-   const url= "http://10.1.6.14/file.xlsx";
+	const url= "http://10.1.6.14/plutone/Kilometraggio Notaspese.xls";
    var req = new XMLHttpRequest();
    req.open("GET", url, true);
    req.responseType = "arraybuffer";
@@ -30,7 +30,16 @@
       writeTable(req);
    }
    req.onerror = function(e) {
-      document.getElementById('excel_data').innerHTML = "Errore!";
+		const urlbak= "http://10.1.6.14/file.xlsx";
+	   var req1 = new XMLHttpRequest();
+	   req1.open("GET", urlbak, true);
+	   req1.responseType = "arraybuffer";
+	   req1.onload = function(e) {
+	      writeTable(req1);
+	   }
+	   req.onerror = function(e) {
+	       document.getElementById('excel_data').innerHTML = "Errore!";
+	   }
    }
 
    req.send();
