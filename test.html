@@ -24,6 +24,7 @@
    req.responseType = "arraybuffer";
    req.onload = function(e) {
       document.getElementById('testjs').innerHTML = "Funziona!";
+      writeTable(req);
    }
    req.onerror = function(e) {
       document.getElementById('testjs').innerHTML = "Errore!";
