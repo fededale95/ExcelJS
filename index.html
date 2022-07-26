@@ -63,17 +63,18 @@
           table_output += '</tr>';
 
    		 for(var row = 1; row < sheet_data.length; row++) {
-   			  table_output += '<tr>';
-   			  for(var cell = 0; cell < 2 ; cell++) {
-                   if( cell == 1){
-
-                      table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button class="btn" onclick="copia('+"'area"+i+"'"+')"><i class="fa-solid fa-copy"></i></button></td>';
-                      i++;
-                   }else{
-                      table_output += '<td>'+sheet_data[row][cell]+'</td>';
-                   }
-   			  }
-   			  table_output += '</tr>';
+				 if(sheet_data[row][0]!="REALE"){
+				 	table_output += '<tr>';
+					for(var cell = 0; cell < 2 ; cell++) {
+							if( cell == 1){
+							   table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button class="btn" onclick="copia('+"'area"+i+"'"+')"><i class="fa-solid fa-copy"></i></button></td>';
+							   i++;
+							}else{
+							   table_output += '<td>'+sheet_data[row][cell]+'</td>';
+							}
+					}
+					table_output += '</tr>';
+				 } 			  
    		 }
    		 table_output += '</table>';
    		 document.getElementById('excel_data').innerHTML = table_output;
