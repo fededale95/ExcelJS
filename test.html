@@ -49,9 +49,13 @@
    					  if(row == 0) {
    							table_output += '<th>'+sheet_data[row][cell]+'</th>';
    					  } else {
-   							table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button onclick="copia('+"'area"+i+"'"+')">copia</button></td>';
-                        i++;
-   					  }
+                      if( cell == 1){
+                         table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button onclick="copia('+"'area"+i+"'"+')">copia</button></td>';
+                         i++;
+                      }else{
+                         table_output += '<td>'+sheet_data[row][cell]+'</td>';
+                      }
+   					 }
    			  }
    			  table_output += '</tr>';
    		 }
