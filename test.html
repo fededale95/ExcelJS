@@ -86,7 +86,7 @@
 
    function copia(testo) {
    	var input = document.createElement('input');
-   	var area = document.getElementById(testo);
+   	var area = document.getElementById(testo.textContent);
    	input.setAttribute('value', area);
    	document.body.appendChild(input);
    	input.select();
