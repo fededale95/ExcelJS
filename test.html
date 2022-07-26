@@ -12,7 +12,7 @@
     	<h2 class="text-center mt-4 mb-4">KMetraggio Nota Spese Test</h2>
       <label for="ricerca">Cerca:</label>
       <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>
-      <div id="testjs" class="mt-5"></div>
+      <div id="excel_data" class="mt-5"></div>
     </div>
 </body>
 </html>
@@ -23,17 +23,16 @@
    req.open("GET", url);
    req.responseType = "arraybuffer";
    req.onload = function(e) {
-      document.getElementById('testjs').innerHTML = "Funziona!";
       writeTable(req);
    }
    req.onerror = function(e) {
-      document.getElementById('testjs').innerHTML = "Errore!";
+      document.getElementById('excel_data').innerHTML = "Errore!";
    }
 
    req.send();
 
    function writeTable(req) {
-   	document.getElementById('testjs').innerHTML = "Funziona2!";
+   	//document.getElementById('excel_data').innerHTML = "Funziona2!";
    	var data = new Uint8Array(req.response);
    	var work_book = XLSX.read(data, {type:"array"});
    	var sheet_name = work_book.SheetNames;
