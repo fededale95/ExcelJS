@@ -22,7 +22,7 @@
    const url= "http://10.1.6.14/file.xslx";
    var req = new XMLHttpRequest();
    req.open("GET", url);
-   req.responseType = "arraybuffer";
+   req.responseType = "buffer";
    req.onload = function(e) {
       writeTable(req);
    }
@@ -34,7 +34,7 @@
 
    function writeTable(req) {
    	var data = new Uint8Array(req.response);
-   	var work_book = XLSX.read(data, {type:"array"});
+   	var work_book = XLSX.read(data, {type:"buffer"});
    	var sheet_name = work_book.SheetNames;
    	var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], {header:1});
 
