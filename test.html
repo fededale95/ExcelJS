@@ -47,6 +47,7 @@
           table_output += '<tr>';
           table_output += '<th>'+sheet_data[0][1]+'</th>';
           table_output += '<th>'+sheet_data[0][1]+'</th>';
+          table_output += '<th>AZIONI</th>';
           table_output += '</tr>';
 
    		 for(var row = 1; row < sheet_data.length; row++) {
@@ -58,7 +59,7 @@
                       i++;
                    }else{
                       table_output += '<td>'+sheet_data[row][cell]+'</td>';
-                   }	 
+                   }
    			  }
    			  table_output += '</tr>';
    		 }
