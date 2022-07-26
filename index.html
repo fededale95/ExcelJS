@@ -11,8 +11,8 @@
     <div class="container">
 	    	<h2 class="text-center mt-4 mb-4">KMetraggio Nota Spese</h2>
 
-	      <label for="ricerca">Cerca:</label>
-	      <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>
+	      <!--<label for="ricerca">Cerca:</label>
+	      <input type="text" id="ricerca"  onkeyup="cerca()" name="ricerca" placeholder="Cerca..."><br/><br/>-->
 
 	      <div id="excel_data" class="mt-5"></div>
     </div>
@@ -20,20 +20,19 @@
 </html>
 
 <script>
+	const url= "http://10.1.6.14/file.xslx";
+	var req = new XMLHttpRequest();
+	req.open("GET", url);
+	req.responseType = "arraybuffer";
+	req.onload = function(e) {
+		document.getElementById('testjs').innerHTML = "Funziona!";
+		//writeTable(req);
+	}
+	req.onerror = function(e) {
+		document.getElementById('testjs').innerHTML = "Errore!";
+	}
 
-const url= "http://10.1.6.14/file.xslx";
-var req = new XMLHttpRequest();
-req.open("GET", url);
-req.responseType = "arraybuffer";
-req.onload = function(e) {
-	document.getElementById('testjs').innerHTML = "Funziona!";
-	//writeTable(req);
-}
-req.onerror = function(e) {
-	document.getElementById('testjs').innerHTML = "Errore!";
-}
-
-req.send();
+	req.send();
 
 function writeTable(req) {
 	document.getElementById('testjs').innerHTML = "Funziona2!";
