@@ -43,12 +43,13 @@
 
           var i = 0;
 
+          table_output = '<thead class="thead-dark">';
 
    		 for(var row = 0; row < sheet_data.length; row++) {
    			  table_output += '<tr>';
    			  for(var cell = 0; cell < 2 ; cell++) {
    					  if(row == 0) {
-   							table_output += '<th>'+sheet_data[row][cell]+'</th>';
+   							table_output += '<th>'+sheet_data[row][cell]+'</th>'+'</thead>';
    					  } else {
                       if( cell == 1){
 
