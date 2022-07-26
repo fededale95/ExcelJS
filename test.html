@@ -32,7 +32,7 @@
    req.send();
 
    function writeTable(req) {
-   	//document.getElementById('excel_data').innerHTML = "Funziona2!";
+   	document.getElementById('excel_data').innerHTML = "Funziona2!";
    	var data = new Uint8Array(req.response);
    	var work_book = XLSX.read(data, {type:"array"});
    	var sheet_name = work_book.SheetNames;
