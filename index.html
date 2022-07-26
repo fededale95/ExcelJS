@@ -26,8 +26,8 @@ var req = new XMLHttpRequest();
 req.open("GET", url);
 req.responseType = "arraybuffer";
 req.onload = function(e) {
-	//document.getElementById('testjs').innerHTML = "Funziona!";
-	writeTable(req);
+	document.getElementById('testjs').innerHTML = "Funziona!";
+	//writeTable(req);
 }
 req.onerror = function(e) {
 	document.getElementById('testjs').innerHTML = "Errore!";
