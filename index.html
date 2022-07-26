@@ -63,7 +63,7 @@
           table_output += '</tr>';
 
    		 for(var row = 1; row < sheet_data.length; row++) {
-				 if(sheet_data[row][0]!="REALE"){
+				 if(sheet_data[row][0]!="REALE" && sheet_data[row][0]!="undefined"){
 				 	table_output += '<tr>';
 					for(var cell = 0; cell < 2 ; cell++) {
 							if( cell == 1){
@@ -74,7 +74,7 @@
 							}
 					}
 					table_output += '</tr>';
-				 } 			  
+				 }
    		 }
    		 table_output += '</table>';
    		 document.getElementById('excel_data').innerHTML = table_output;
