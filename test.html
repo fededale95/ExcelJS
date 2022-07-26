@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
@@ -51,8 +52,7 @@
    					  } else {
                       if( cell == 1){
 
-                         table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button onclick="copia('+"'area"+i+"'"+')">copia</button></td>';
-                         //table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'<button onclick="copia('+"'area"+i+"'"+')">copia</button></td>';
+                         table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button class="btn" onclick="copia('+"'area"+i+"'"+')"><i class="fa fa-home"></i></button></td>';
                          i++;
                       }else{
                          table_output += '<td>'+sheet_data[row][cell]+'</td>';
