@@ -44,21 +44,21 @@
           var i = 0;
 
           table_output += '<thead class="thead-dark">';
+          table_output += '<tr>';
+          table_output += '<th>'+sheet_data[0][1]+'</th>';
+          table_output += '<th>'+sheet_data[0][1]+'</th>';
+          table_output += '</tr>';
 
-   		 for(var row = 0; row < sheet_data.length; row++) {
+   		 for(var row = 1; row < sheet_data.length; row++) {
    			  table_output += '<tr>';
    			  for(var cell = 0; cell < 2 ; cell++) {
-   					  if(row == 0) {
-   							table_output += '<th>'+sheet_data[row][cell]+'</th>'+'</thead>';
-   					  } else {
-                      if( cell == 1){
+                   if( cell == 1){
 
-                         table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button class="btn" onclick="copia('+"'area"+i+"'"+')"><i class="fa fa-copy"></i></button></td>';
-                         i++;
-                      }else{
-                         table_output += '<td>'+sheet_data[row][cell]+'</td>';
-                      }
-   					 }
+                      table_output += '<td id="area'+i+'">'+sheet_data[row][cell]+'</td>'+'<td><button class="btn" onclick="copia('+"'area"+i+"'"+')"><i class="fa fa-copy"></i></button></td>';
+                      i++;
+                   }else{
+                      table_output += '<td>'+sheet_data[row][cell]+'</td>';
+                   }	 
    			  }
    			  table_output += '</tr>';
    		 }
